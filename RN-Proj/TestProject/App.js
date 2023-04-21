@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity, FlatList, Dimensions, Keyboard } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity, FlatList, Dimensions, Keyboard, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 
@@ -13,10 +13,6 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   
 
-  useEffect(() => {
-    console.log("useeffect search api city data", data);
-
-  }, [data])
   const fetchData = async () => {
     setLoading(true);
     const resp = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchtxt}&appid=8f75a50dccbf59f8791a51d7bc790c7e`);
@@ -105,8 +101,9 @@ const App = () => {
         style={styles.input}
       />
         
-      <TouchableOpacity style={styles.cstmbtn} onPress={sumbitsearch}>
-        {<Text style={{fontSize: 22, fontWeight: 'bold',color: 'white'}}>Search</Text>}
+      <TouchableOpacity style={styles.cstmbtn} onPress={sumbitsearch} disabled={loading}>
+        {loading ?     <ActivityIndicator size="large" color="#0000ff" />
+:<Text style={{fontSize: 22, fontWeight: 'bold',color: 'white'}}>Search</Text>}
       </TouchableOpacity>
 
 
