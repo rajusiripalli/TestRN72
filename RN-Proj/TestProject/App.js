@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
       borderWidth: 1.5,
       marginHorizontal: 40,
       marginVertical: 10,
-      height: windowHeight /2.7
+      height: 275
   },
   tblheadr: {
       height: 45,
