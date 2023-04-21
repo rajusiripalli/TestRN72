@@ -106,7 +106,7 @@ const App = () => {
       />
         
       <TouchableOpacity style={styles.cstmbtn} onPress={sumbitsearch}>
-        <Text style={{fontSize: 22, fontWeight: 'bold',color: 'white'}}>Search</Text>
+        {<Text style={{fontSize: 22, fontWeight: 'bold',color: 'white'}}>Search</Text>}
       </TouchableOpacity>
 
 
