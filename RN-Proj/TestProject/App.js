@@ -92,7 +92,7 @@ const App = () => {
     <SafeAreaView style={{flex: 1}}>
     <View style={styles.container}>
           <View style={{height: 40}} />
-        <Text style={{fontSize: 40, fontWeight: 'bold', lineHeight: 42, color: primaryColor, alignSelf:'center'}}>Weather in Your City</Text>
+        <Text style={{fontSize: 40, fontWeight: 'bold', lineHeight: 42, color: primaryColor, alignSelf:'center', textAlign:'center'}}>Weather in Your City</Text>
 
       <TextInput 
         placeholder='Search'
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
       borderWidth: 1.5,
       marginHorizontal: 40,
       marginVertical: 10,
-      height: windowHeight /2.5
+      height: windowHeight /2.7
   },
   tblheadr: {
       height: 45,
