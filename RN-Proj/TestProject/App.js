@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity, FlatList, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity, FlatList, Dimensions, Keyboard } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 
@@ -21,6 +21,8 @@ const App = () => {
     setLoading(true);
     const resp = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchtxt}&appid=8f75a50dccbf59f8791a51d7bc790c7e`);
     const data = await resp.json();
+    setData([]);
+    Keyboard.dismiss()
     console.log("search api city data response status", resp.status);
 
     setLoading(false);
@@ -62,11 +64,11 @@ const App = () => {
       </View>
       <View style={styles.tblclmn}>
         <View style={styles.clmnbx}>
-            <Text style={[styles.tblhdrtxt, ]}>XX.XX</Text>
+            <Text style={[styles.tblhdrtxt, ]}>{item?.main?.temp_min}</Text>
         </View>
         <View style={styles.verticln}/>
         <View style={styles.clmnbx}>
-        <Text style={[styles.tblhdrtxt, ]}>XX.XX</Text>
+        <Text style={[styles.tblhdrtxt, ]}>{item?.main?.temp_max}</Text>
         </View>
       </View>
       <View style={[styles.tblclmn]}>
@@ -75,7 +77,7 @@ const App = () => {
         </View>
         <View style={styles.verticln}/>
         <View style={[styles.clmnbx, {backgroundColor:'transparent'}]}>
-        <Text style={[styles.tblhdrtxt, ]}>XX.XX</Text>
+        <Text style={[styles.tblhdrtxt, ]}>{item?.main?.pressure}</Text>
         </View>
       </View>
       <View style={[styles.tblclmn, {borderBottomWidth: 0}]}>
@@ -84,7 +86,7 @@ const App = () => {
         </View>
         <View style={styles.verticln}/>
         <View style={[styles.clmnbx, {backgroundColor:'transparent'}]}>
-        <Text style={[styles.tblhdrtxt, ]}>XX.XX</Text>
+        <Text style={[styles.tblhdrtxt, ]}>{item?.main?.humidity}</Text>
         </View>
       </View>
   </View>
@@ -147,8 +149,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 9,
     fontSize: 18,
-    fontWeight:'9a00',
-    color:'blac'
+    fontWeight:'900',
+    color:'black'
   },
   cstmbtn: {
     height: 55,
